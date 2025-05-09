@@ -4,7 +4,7 @@ const {createTask,getTasks,updateTask,deleteTask} = require('../controllers/task
 const verifyTask = require('../middlewares/verifyTask');
 const verifyToken = require('../middlewares/verifyToken')
 
-router.post('/createTask', verifyToken,verifyTask, createTask);
+router.post('/createTask', verifyToken, createTask);
 router.get('/',verifyToken, getTasks);
 router.put('/:id',verifyToken, verifyTask, updateTask);
 router.delete('/:id',verifyToken, deleteTask);

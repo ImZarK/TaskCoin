@@ -10,6 +10,10 @@ const registerUser = async (req, res) => {
         if (existingUser) {
             return res.status(400).json({message: 'El usuario ya existe con ese email o nombre de usuario.'})
         }
+        if (typeof password !== 'string' || password.length < 6 ) {
+            return res.status(400).json({message:"La contraseña deberia tener al menos 6 caracteres"});
+        }
+        
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
