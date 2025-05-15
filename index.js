@@ -7,6 +7,8 @@ const cors = require("cors");
 const userRoutes = require('./routes/userRoutes.js');
 const authRoutes = require('./routes/authRoutes.js');
 const taskRoutes = require('./routes/taskRoutes.js');
+const financeRoutes = require('./routes/financeRoutes.js');
+const debtRoutes = require('./routes/debtRoutes.js');
 
 const limiter = rateLimit({windowMs: 1*60*1000, max: 100})
 
@@ -38,6 +40,8 @@ connectDB();
 app.use('/api/users', userRoutes);
 app.use('/api/tasks', taskRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/finance', financeRoutes);
+app.use('/api/debt', debtRoutes);
 
 // Levantar el servidor
 const PORT = process.env.PORT || 5000;
