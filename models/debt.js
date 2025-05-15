@@ -21,4 +21,4 @@ paidAt: {type: Date, default: Date.now}
 
  const Debt = mongoose.model('Debt',debtSchema);
 
- module.export = Debt;
+ module.exports = Debt;

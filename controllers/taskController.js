@@ -43,7 +43,7 @@ const updateTask = async (req, res, ) => {
     }
     //Buscar la tarea por su ID
     const task = await Task.findById(taskId);
-    //Verificar que esa tarea existe
+    //Verificar que esa tarea exriste
     if (!task) {
        return res.status(404).json({message: 'No se ha encontrado la tarea.'}) 
     }
