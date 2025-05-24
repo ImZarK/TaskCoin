@@ -1,10 +1,10 @@
 const Task = require('../models/task.js');
 
 const createTask = async (req, res) => {
-    const {tittle, description} = req.body;
+    const {title, description} = req.body;
     const userId = req.user.id
 try {
-    const newTask = new Task({tittle,description, user: userId});
+    const newTask = new Task({title,description, user: userId});
     await newTask.save();
     res.status(201).json({message: 'Tarea creada con exito.', task: newTask});
 } catch (error) {
@@ -34,7 +34,7 @@ const updateTask = async (req, res, ) => {
     //Obtener el ID del usuario autenticado
     const userId = req.user.id
     // guardar los datos actualizados
-    const allowedFields = ['tittle','description','status','priority','dueDate']
+    const allowedFields = ['title','description','status','priority','dueDate']
     const updates = {}
     for (const key of allowedFields){
         if (updates[key] !== undefined) {

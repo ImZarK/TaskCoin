@@ -1,7 +1,7 @@
 const {body, validationResult} = require('express-validator');
 
 const verifyTask = [
-    body('tittle').isString().notEmpty(),
+    body('title').isString().notEmpty(),
     body('status').isIn(['pendiente','en progreso','completada']),
     body('priority').isIn(['baja','media','alta']),
   (req, res, next) => {
