@@ -3,7 +3,8 @@ const mongoSanitize = require('express-mongo-sanitize');
 const rateLimit = require('express-rate-limit')
 const mongoose = require("mongoose");
 require('dotenv').config();
-const cors = require("cors");
+const cors = require("cors");;
+
 const userRoutes = require('./routes/userRoutes.js');
 const authRoutes = require('./routes/authRoutes.js');
 const taskRoutes = require('./routes/taskRoutes.js');
@@ -17,9 +18,8 @@ const limiter = rateLimit({windowMs: 1*60*1000, max: 100})
 const app = express();
 
 
-
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: process.env.CORS_ORIGIN }));
 app.use(mongoSanitize());
 app.use(limiter);
 
